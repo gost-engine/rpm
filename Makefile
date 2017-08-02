@@ -9,10 +9,10 @@ rpm: openssl-gost-engine-$(VERSION)-1$(DIST).$(ARCH).rpm
 openssl-gost-engine-$(VERSION)-1$(DIST).$(ARCH).rpm: $(RPMTOP)/RPMS/$(ARCH)/openssl-gost-engine-$(VERSION)-1$(DIST).$(ARCH).rpm
 	cp $^ $@
 
-$(RPMTOP)/RPMS/$(ARCH)/openssl-gost-engine-$(VERSION)-1.$(ARCH).rpm: $(RPMTOP)/SOURCES/openssl-gost-engine-$(VERSION).tar.bz2 $(RPMTOP)/SPECS/openssl-gost-engine.spec
+$(RPMTOP)/RPMS/$(ARCH)/openssl-gost-engine-$(VERSION)-1$(DIST).$(ARCH).rpm: $(RPMTOP)/SOURCES/openssl-gost-engine-$(VERSION).tar.bz2 $(RPMTOP)/SPECS/openssl-gost-engine.spec
 	mkdir -p $(RPMTOP)/RPMS/$(ARCH) || true
 	mkdir -p $(RPMTOP)/SRPMS
-	rpmbuild -ba $(RPMTOP)/SPECS/openssl-gost-engine.spec
+	CXX=/bin/true rpmbuild -ba $(RPMTOP)/SPECS/openssl-gost-engine.spec
 
 $(RPMTOP)/SPECS/openssl-gost-engine.spec: openssl-gost-engine.spec
 	mkdir -p $(RPMTOP)/SPECS || true

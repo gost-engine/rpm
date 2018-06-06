@@ -8,7 +8,17 @@ License: OpenSSL
 URL: https://github.com/gost-engine/engine		
 Source0: %{name}-%{version}.tar.bz2	
 
-BuildRequires: cmake, openssl-devel	
+%define cmake cmake
+
+%if 0%{?rhel} == 7
+%define cmake cmake3
+%endif
+
+%if 0%{?rhel} == 6
+%define cmake cmake3
+%endif
+
+BuildRequires: %{cmake}, openssl-devel
 Requires: openssl-libs	
 
 
@@ -30,7 +40,7 @@ Gostsum and gost12sum are utilities, similar to md5sum or sha1sum which computes
 
 
 %build
-cmake .
+%{cmake} .
 make %{?_smp_mflags}
 
 

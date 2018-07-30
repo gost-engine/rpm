@@ -8,7 +8,7 @@ License: OpenSSL
 URL: https://github.com/gost-engine/engine		
 Source0: %{name}-%{version}.tar.bz2	
 
-BuildRequires: cmake, openssl-devel	
+BuildRequires: cmake, openssl-devel	>= %{?rhel:1:}1.1
 Requires: openssl-libs	
 
 
